@@ -7,6 +7,8 @@ Submission by:-
 close all;
 clear all;
 ipString = zeros(65536, 1);
+
+# Generation of Source Bits
 for i = 1:1:65536
 	if (rand(1) < 0.5)
 		ipString(i) = 0;
@@ -15,8 +17,8 @@ for i = 1:1:65536
 	endif
 endfor
 
-#ipString= zeros(10,1);
 errBit= 0;
+# Simulation of error in propogation
 for i= 1:1:size(ipString)(1,1)
   probab = rand(1);
   if(probab< 0.05)
@@ -28,6 +30,8 @@ for i= 1:1:size(ipString)(1,1)
     errBit+= 1;
   endif
 endfor
+
+# Calculation of error rate
 errRate= (errBit/size(ipString)(1,1));
 
-printf("Hence the error bits is %d and error rate is %d", errBit, errRate)
+printf("The number of error bits is %d and error rate is %d\n", errBit, errRate)

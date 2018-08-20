@@ -7,9 +7,8 @@ Submission by:-
 
 close all;
 clear all;
+
 # Source Generation
-#s = zeros(8, 1);
-#for i = 1:1:8
 s = zeros(65536, 1);
 for i = 1:1:65536
 	if (rand() < 0.5)
@@ -22,14 +21,11 @@ endfor
 # Encoder (3, 1)
 t = zeros(196608, 1);
 for i = 1:1:65536
-#t = zeros(24, 1);
-#for i = 1:1:8
 	t(i*3 - 2) = s(i);
 	t(i*3 - 1) = s(i);
 	t(i*3) = s(i);
 endfor
 
-#ipString= zeros(10,1);
 #Introducing error in the transmission stream 't'
 for i= 1:1:size(t)(1,1)
   probab = rand(1);
@@ -61,10 +57,6 @@ for i= 1:1:((size(s)(1,1))-1)
     errBit+= 1;
   endif
 endfor
-
-#sPrime
-#s
-
 errRate= (errBit/size(s)(1,1));
 
-printf("Hence the error bits is %d and error rate is %d\n", errBit, errRate)
+printf("The number of error bits is %d and error rate is %d\n", errBit, errRate)
